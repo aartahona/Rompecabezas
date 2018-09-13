@@ -37,7 +37,21 @@ li::before {
 
 .col-60 {
   background: #E84A5F;
-
+}
+#juego {
+  background-color: pink;
+  height: 600px;
+  width: 600px;
+}
+.imagen-pieza{
+  max-width: 100%;
+  max-height: 100%;
+}
+.pieza {
+  float: left;
+  padding: 0;
+  width: 200px;
+  height: 200px;
 }
 
 #flecha{
