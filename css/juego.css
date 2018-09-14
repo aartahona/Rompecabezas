@@ -38,6 +38,36 @@ li::before {
 .col-60 {
   background: #E84A5F;
 }
+
+
+
+#titulo {
+  background-color: #00d0c2;
+  color: white;
+  height: 50%;
+  width: 100%;
+  font-size: 35px;
+  padding-left: auto;
+  padding-right: auto;
+}
+
+#titulo p {
+  margin : 0;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-family: 'Ubuntu Condensed', sans-serif;
+  font-family: 'Roboto', sans-serif;
+}
+
+#instrucciones {
+  padding-top: 20px;
+  font-family: 'Ubuntu Condensed', sans-serif;
+  font-size: 30px;
+  color: #00d0c2;
+  /*color: #144149;*/
+}
+
+
 #juego {
   background-color: pink;
   height: 600px;
