@@ -16,7 +16,7 @@ li {
 }
 li::before {
   content: "• ";
-  color: #EC6778;
+  color: #00d0c2;
 }
 
 .col-40 h1 {
@@ -28,15 +28,17 @@ li::before {
   display: table-cell;
   margin: 0;
   vertical-align: top;
+  max-height: 600px;
 }
 .col-40 {
   background: #FFF;
   padding: 30px;
   color: #000;
+
 }
 
 .col-60 {
-  background: #E84A5F;
+  background: none;
 }
 
 
@@ -59,14 +61,24 @@ li::before {
   font-family: 'Roboto', sans-serif;
 }
 
-#instrucciones {
+#instrucciones, #objetivo, #ultimo-mov {
   padding-top: 20px;
   font-family: 'Ubuntu Condensed', sans-serif;
-  font-size: 30px;
+  font-size: 23px;
   color: #00d0c2;
   /*color: #144149;*/
 }
 
+
+#imagen-objetivo {
+  max-width: 250px;
+  max-height: 250px;
+  padding-top: 10px;
+}
+
+#lista-instrucciones{
+  margin-top:2%;
+}
 
 #juego {
   background-color: pink;
