@@ -2,7 +2,7 @@
 body {
   font-family: Arial, sans-serif;
   width: 940px;
-  margin: 5% auto;
+  margin: 2% auto;
   min-height: 100%;
   background-image: url(../images/adventure.jpg);
 }
@@ -13,6 +13,9 @@ ul {
 li {
   padding: 5px 0;
   animation: fadein 5s;
+  font-family: 'Roboto', sans-serif;
+  font-size: 17px;
+  color: #3b444b;
 }
 li::before {
   content: "• ";
@@ -29,6 +32,7 @@ li::before {
   margin: 0;
   vertical-align: top;
   max-height: 600px;
+  background : white ;
 }
 .col-40 {
   background: #FFF;
@@ -38,7 +42,10 @@ li::before {
 }
 
 .col-60 {
-  background: none;
+  background: white;
+  padding-top : 2%;
+  padding-bottom : 2%;
+  padding-right: 25px;
 }
 
 
@@ -62,7 +69,7 @@ li::before {
 }
 
 #instrucciones, #objetivo, #ultimo-mov {
-  padding-top: 20px;
+  padding-top: 10px;
   font-family: 'Ubuntu Condensed', sans-serif;
   font-size: 23px;
   color: #00d0c2;
@@ -78,12 +85,14 @@ li::before {
 
 #lista-instrucciones{
   margin-top:2%;
+  margin-bottom: 2%;
 }
 
 #juego {
   background-color: pink;
   height: 600px;
   width: 600px;
+  
 }
 .imagen-pieza{
   max-width: 100%;
