@@ -60,6 +60,7 @@ function chequearSiGano() {
 function mostrarCartelGanador() {
   if( chequearSiGano() ){
       alert("Ganaste\nTe tomó " + (movimientos.length-contarMezclas) + " movimientos.");
+      location.reload();
   }
     //COMPLETAR
 }
@@ -146,7 +147,7 @@ function moverEnDireccion(direccion) {
         agregarUltimaDireccion(direccion);
         return;
     }
-    
+
     contarMezclas--;
 }
 
