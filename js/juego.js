@@ -17,8 +17,9 @@ var grilla = [
 
 /* Estas dos variables son para guardar la posición de la pieza vacía. 
 Esta posición comienza siendo la [2, 2]*/
-var filaVacia = 3;
-var columnaVacia = 3;
+var filaVacia = 2;
+var columnaVacia = 2;
+var contarMezclas =0;
 
 /* Esta función deberá recorrer el arreglo de instrucciones pasado por parámetro. 
 Cada elemento de este arreglo deberá ser mostrado en la lista con id 'lista-instrucciones'. 
@@ -58,10 +59,7 @@ function chequearSiGano() {
 // Implementar alguna forma de mostrar un cartel que avise que ganaste el juego
 function mostrarCartelGanador() {
   if( chequearSiGano() ){
-      alert("Ganaste");
-  }
-  else {
-    alert("No has ganado");
+      alert("Ganaste\nTe tomó " + (movimientos.length-contarMezclas) + " movimientos.");
   }
     //COMPLETAR
 }
@@ -77,18 +75,32 @@ En vez de intercambiar esos valores vamos a terminar teniendo en ambas posicione
 Se te ocurre cómo solucionar esto con una variable temporal?
 */
 function intercambiarPosicionesGrilla(filaPos1, columnaPos1, filaPos2, columnaPos2) {
-    //COMPLETAR
+  var temporal = grilla[filaPos1][columnaPos1];
+  grilla[filaPos1][columnaPos1] = grilla[filaPos2][columnaPos2];
+  grilla[filaPos2][columnaPos2] = temporal;
+
+  //COMPLETAR
 }
 
 // Actualiza la posición de la pieza vacía
 function actualizarPosicionVacia(nuevaFila, nuevaColumna) {
-    //COMPLETAR
+    
+      filaVacia = nuevaFila;
+      columnaVacia = nuevaColumna;
+    
+  //COMPLETAR
 }
 
 
 // Para chequear si la posicón está dentro de la grilla.
 function posicionValida(fila, columna) {
-    //COMPLETAR
+  if(fila > 2 || fila < 0 || columna < 0 || columna > 2) {
+    return false;
+  }
+  else {
+    return true;
+  }
+  //COMPLETAR
 }
 
 /* Movimiento de fichas, en este caso la que se mueve es la blanca intercambiando su posición con otro elemento.
@@ -111,11 +123,15 @@ function moverEnDireccion(direccion) {
     
   // Mueve pieza hacia la derecha, reemplazandola con la blanca
   else if (direccion === codigosDireccion.DERECHA) {
-    //COMPLETAR
+    nuevaColumnaPiezaVacia = columnaVacia - 1;
+    nuevaFilaPiezaVacia = filaVacia;
+    
   }
     
   // Mueve pieza hacia la izquierda, reemplazandola con la blanca
   else if (direccion === codigosDireccion.IZQUIERDA) {
+    nuevaColumnaPiezaVacia = columnaVacia + 1;
+    nuevaFilaPiezaVacia = filaVacia;
     // COMPLETAR
   }
 
@@ -124,12 +140,14 @@ function moverEnDireccion(direccion) {
   las funciones posicionValida, intercambiarPosicionesGrilla y actualizarPosicionVacia */
 
     if (posicionValida(nuevaFilaPiezaVacia, nuevaColumnaPiezaVacia)) {
+        
         intercambiarPosiciones(filaVacia, columnaVacia, nuevaFilaPiezaVacia, nuevaColumnaPiezaVacia);
         actualizarPosicionVacia(nuevaFilaPiezaVacia, nuevaColumnaPiezaVacia);
-
-  //COMPLETAR: Agregar la dirección del movimiento al arreglo de movimientos
-
+        agregarUltimaDireccion(direccion);
+        return;
     }
+    
+    contarMezclas--;
 }
 
 
@@ -229,6 +247,7 @@ function mezclarPiezas(veces) {
     ];
 
   var direccion = direcciones[Math.floor(Math.random() * direcciones.length)];
+  contarMezclas++;
   moverEnDireccion(direccion);
 
   setTimeout(function() {
@@ -266,7 +285,9 @@ y ejecutando la función para que se capturen las teclas que
 presiona el usuario */
 function iniciar() {
     mostrarInstrucciones(instrucciones);
-    mezclarPiezas(30);
+   // debugger;
+    mezclarPiezas(60);
+    debugger;
     capturarTeclas();
 }
 
