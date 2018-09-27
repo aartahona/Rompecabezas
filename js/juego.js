@@ -287,7 +287,7 @@ presiona el usuario */
 function iniciar() {
     mostrarInstrucciones(instrucciones);
    // debugger;
-    mezclarPiezas(60);
+    mezclarPiezas(90);
     debugger;
     capturarTeclas();
 }
